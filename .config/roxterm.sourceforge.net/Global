@@ -1,0 +1,7 @@
+[roxterm options]
+colour_scheme=MyColours
+warn_close=0
+only_warn_running=1
+prefer_dark_theme=1
+profile=Default
+shortcut_scheme=Default

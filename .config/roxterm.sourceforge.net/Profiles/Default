@@ -1,0 +1,7 @@
+[roxterm profile]
+use_custom_command=1
+command=/bin/fish
+font=Monospace 15
+colour_scheme=Tango
+saturation=0,446237
+scrollbar_pos=0

@@ -68,7 +68,7 @@ font-3 = FontAwesome:size=10;1
 modules-left = power-menu bspwm
 ;modules-center = mpd
 modules-center = xwindow
-modules-right = pkg xkeyboard xbacklight wifi pavolume battery date
+modules-right = pkg xkeyboard xbacklight wifi pavolume battery dateT
 
 tray-position = none
 tray-padding = 4
@@ -113,7 +113,7 @@ font-1 = siji:pixelsize=10;1
 font-2 = unifont:size=6;1
 font-3 = FontAwesome:size=10;1
 
-modules-left = memory
+modules-left = memory KW
 
 tray-position = right
 tray-padding = 4
@@ -330,7 +330,7 @@ label-connected = %local_ip%
 ;label-disconnected = not connected
 ;label-disconnected-foreground = #999
 
-[module/date]
+[module/dateT]
 type = internal/date	
 label = %{F#666}%{F-} %date%  %{F#666}|%{F-} %time%
 ;date = %Y-%m-%d
@@ -338,6 +338,26 @@ date = %d-%m-%Y
 time = %H:%M
 interval = 5
 ; {F#e60053}
+
+[module/date]
+type = internal/date
+label = %{F#666}%{F-} %date%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+; {F#e60053}
+
+
+[module/time]
+type = internal/date	
+label = %{F#666}|%{F-} %time%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+; {F#e60053}
+
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -554,10 +574,10 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 click-left = .config/polybar/skript/pkg-update.sh
 click-right = .config/polybar/skript/pkg-list.sh
 
-[module/conky]
+[module/KW]
 type = custom/script
-format = <label>
-execi = conky -c ~/.config/bspwm/bottomBar
+format = W<label>
+exec = ~/./.skript/KW.sh
 
 [module/pavolume]
 type = custom/script

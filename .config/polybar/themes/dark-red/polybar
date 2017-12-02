@@ -70,9 +70,9 @@ modules-left = power-menu bspwm
 modules-center = xwindow
 modules-right = pkg xkeyboard xbacklight wifi pavolume battery date
 
-tray-position = right
-tray-padding = 4
-tray-maxsize = 16
+;tray-position = right
+;tray-padding = 4
+;tray-maxsize = 16
 ;tray-transparent = true
 ;tray-detached = true
 ;tray-offset-x = 50
@@ -81,9 +81,29 @@ wm-restack = bspwm
 
 ;dim-value = 0.2
 
-# bar/module specific vars
+;bar/module specific vars
 bspwm-focused-overline = ${colors.linecolor}
 bspwm-focused-underline = #cc333333
+
+[bar/bottom]
+eneble-ipc = true
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+forderground = ${colors.foreground}
+padding-left = 2
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+bottom = true
+
+font-0 = FontAwesome:size=10;1
+font-1 = DejaVuSans:pixelsize=9;1
+
+modules-left = memory KW
+
+tray-position = right
+tray-padding = 4
+tray-maxsize = 16
 
 
 [bar/top2]
@@ -520,10 +540,10 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 click-left = .config/polybar/skript/pkg-update.sh
 click-right = .config/polybar/skript/pkg-list.sh
 
-[module/conky]
+[module/KW]
 type = custom/script
-format = <label>
-execi = conky -c ~/.config/bspwm/bottomBar
+format = W<label>
+exec = ~/./.skript/KW.sh
 
 [module/pavolume]
 type = custom/script

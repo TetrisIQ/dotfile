@@ -1,8 +1,8 @@
 [colors]
-background = #222
+background = #303030
 foreground = #eee
-linecolor = #704B0F
-bordercolor = #333333
+linecolor = #CE0000
+bordercolor = #CE0000
 accent = #B48B48
 
 [settings]

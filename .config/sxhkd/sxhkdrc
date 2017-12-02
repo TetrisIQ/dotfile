@@ -8,7 +8,7 @@
 
 # terminal emulator
 super + Return
-	terminator
+	roxterm
 
 # program launcher
 super + @space

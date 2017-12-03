@@ -1,0 +1,2 @@
+bspc monitor HDMI1 -d 8
+polybar -c ~/.config/polybar/themes/darkpx/polybar top2 -q > /dev/null &

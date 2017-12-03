@@ -12,7 +12,9 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -b
+#	dmenu_run -nb '#222' -nf '#eee' -sb '#704B0F' -b -fn monospace	
+# red	
+	dmenu_run -nb '#222' -nf '#eee' -sb '#7B0000' -b -fn monospace	
 
 # make sxhkd reload its configuration files:
 super + Escape

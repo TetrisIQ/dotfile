@@ -1,9 +1,9 @@
 [colors]
-background = #303030
+background = #222
 foreground = #eee
-linecolor = #CE0000
-bordercolor = #CE0000
-accent = #7B0000
+linecolor = #7B0000
+bordercolor = #333333
+accent = #C80000
 
 [settings]
 screenchange-reload = true
@@ -63,16 +63,18 @@ module-margin-right = 2
 font-0 = DejaVuSans:pixelsize=9;1
 font-1 = siji:pixelsize=10;1
 font-2 = unifont:size=6;1
-font-3 = FontAwesome:size=10;1
+font-3 = Font Awesome 5 Free:style=Regular:pixelsize=10;3
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
+font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
 
 modules-left = power-menu bspwm
 ;modules-center = mpd
 modules-center = xwindow
-modules-right = pkg xkeyboard xbacklight wifi pavolume battery date
+modules-right = pkg xkeyboard xbacklight wifi pavolume battery dateT
 
-;tray-position = right
-;tray-padding = 4
-;tray-maxsize = 16
+tray-position = none
+tray-padding = 4
+tray-maxsize = 16
 ;tray-transparent = true
 ;tray-detached = true
 ;tray-offset-x = 50
@@ -81,25 +83,33 @@ wm-restack = bspwm
 
 ;dim-value = 0.2
 
-;bar/module specific vars
+# bar/module specific vars
 bspwm-focused-overline = ${colors.linecolor}
 bspwm-focused-underline = #cc333333
 
+
 [bar/bottom]
-eneble-ipc = true
+enable-ipc = true
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-forderground = ${colors.foreground}
-padding-left = 2
+; sollte transperent sein :(
+;background = #cc000000
+foreground = ${colors.foreground}
+padding-left = 0
 padding-right = 2
-module-margin-left = 2
+module-margin-left = 1
 module-margin-right = 2
 bottom = true
 
-font-0 = FontAwesome:size=10;1
-font-1 = DejaVuSans:pixelsize=9;1
+font-0 = DejaVuSans:pixelsize=9;1
+font-1 = siji:pixelsize=10;1
+font-2 = unifont:size=6;1
+font-3 = Font Awesome 5 Free:style=Regular:pixelsize=10;3
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
+font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
 
-modules-left = memory KW
+modules-left = KW wmname tlp
+modules-center = htop cpu memory insync oneko
 
 tray-position = right
 tray-padding = 4
@@ -110,7 +120,7 @@ tray-maxsize = 16
 enable-ipc = true
 ;monitor = ${env:MONITOR:eDP1}
 monitor = ${env:MONITOR:HDMI1}
-;monitor-fallback = ${env:MONITOR:HDMI1}
+monitor-fallback = ${env:MONITOR:VIRTUAL1}
 
 width = 100%
 height = 24
@@ -148,12 +158,14 @@ module-margin-right = 2
 font-0 = DejaVuSans:pixelsize=9;1
 font-1 = siji:pixelsize=10;1
 font-2 = unifont:size=6;1
-font-3 = FontAwesome:size=10;1
+font-3 = Font Awesome 5 Free:style=Regular:pixelsize=10;3
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
+font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
 
 modules-left = power-menu bspwm
 ;modules-center = mpd
 modules-center = xwindow
-modules-right = wifi pavolume battery date
+modules-right = wifi battery date
 
 tray-position = none
 tray-padding = 4
@@ -193,7 +205,7 @@ enable-scroll = false
 
 format = <label-state> <label-mode>
 ;format = <label-monitor> <label-state> <label-mode>
-;pin-workspaces = false
+;pin-workspaces = true
 
 ;ws-icon-0 = term;
 ;ws-icon-1 = web;
@@ -205,15 +217,17 @@ ws-icon-default = 
 
 inline-mode = true
 
-;label-focused = %icon%
-label-focused = o
+;label-focused = %icon% %name%
+;label-unfocused = %icon% %name%
+;label-visible = %icon% %name%
 label-focused-background = #383838
 label-focused-foreground = #fff
 label-focused-overline = ${root.bspwm-focused-overline}
 label-focused-underline = ${root.bspwm-focused-underline}
 label-focused-padding = 2
 
-label-focused-occupied = %{O-1} %{O-1}
+;label-focused-occupied = %{O-1} %{O-1}
+;label-focused-occupied = %{O-1} %{O-1} %name%
 label-focused-occupied-background = ${self.label-focused-background}
 label-focused-occupied-foreground = ${self.label-focused-foreground}
 label-focused-occupied-overline = ${self.label-focused-overline}
@@ -221,12 +235,12 @@ label-focused-occupied-underline = ${self.label-focused-underline}
 label-focused-occupied-padding = ${self.label-focused-padding}
 
 ;label-occupied = %icon%
-label-occupied = %{O-1}%{O-1}
+label-occupied = %{O-1} %{O-1}
 label-occupied-padding = 2
 
 ;label-urgent = %icon%
 label-urgent = !
-label-urgent-background = #bd2c40
+label-urgent-background = ${colors.accent}
 label-urgent-padding = 2
 
 ;label-empty = %icon%
@@ -266,14 +280,14 @@ label-dimmed-active-foreground = #f00
 type = internal/cpu
 interval = 2
 label = %percentage%%
-format-prefix = "&"
+format-prefix = " "
 format-prefix-foreground = #666
 
 [module/memory]
 type = internal/memory
 interval = 2
 label = %percentage_used%%
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = #666
 
 [module/wifi]
@@ -316,7 +330,7 @@ label-connected = %local_ip%
 ;label-disconnected = not connected
 ;label-disconnected-foreground = #999
 
-[module/date]
+[module/dateT]
 type = internal/date	
 label = %{F#666}%{F-} %date%  %{F#666}|%{F-} %time%
 ;date = %Y-%m-%d
@@ -324,6 +338,26 @@ date = %d-%m-%Y
 time = %H:%M
 interval = 5
 ; {F#e60053}
+
+[module/date]
+type = internal/date
+label = %{F#666}%{F-} %date%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+; {F#e60053}
+
+
+[module/time]
+type = internal/date	
+label = %{F#666}|%{F-} %time%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+; {F#e60053}
+
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -411,7 +445,8 @@ animation-charging-framerate = 750
 
 ;[module/battery-multi]
 ;type = custom/script
-;exec = "count=$(acpi -b | wc -l); sum=$(acpi -b | egrep -o '[0-9]{1,3}%' | tr -d '%' | xargs -I% echo -n '+%'); echo $(date +%s) Avg capacity: $(( sum / count ))%"
+;exec = "count=$(acpi -b | wc -l); sum=$(acpi -b | egrep -o '[0-9]{1,3}%' | tr -d '%' | xargs -I% echo -n '+%'); echo $(date +%s) Avg capacity: $(( 
+sum / count ))%"
 ;exec-if = pgrep -x watch
 ;interval = 3
 
@@ -442,7 +477,7 @@ icon-pause = 
 icon-next = 
 
 icon-random = 
-icon-repeat = 
+icon-repeat =   
 
 toggle-on-foreground = ${colors.accent}
 toggle-off-foreground = #777
@@ -533,7 +568,7 @@ interval = 0.1
 type = custom/script
 format = <label>
 interval = 100
-format-underline = #704B0F
+format-underline = #7B0000
 label = "%output:0:30%"
 exec = .config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
@@ -543,7 +578,7 @@ click-right = .config/polybar/skript/pkg-list.sh
 [module/KW]
 type = custom/script
 format = W<label>
-exec = ~/./.skript/KW.sh
+exec = date +%V
 
 [module/pavolume]
 type = custom/script
@@ -554,3 +589,37 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/skript/sound/paVol.sh --togmute
 scroll-up = ~/.config/polybar/skript/sound/paVol.sh --up
 scroll-down = ~/.config/polybar/skript/sound/paVol.sh --down
+
+
+[module/insync]
+type = custom/script
+exec = ~/./.skript/insync-isrunning.sh
+interval = 5
+click-left = ~/./.skript/insync-isrunning.sh --toggle
+click-right = roxterm -e 'sh -c "insync-headless manage_selective_sync aw1826510@googlemail.com"'
+
+[module/oneko]
+type = custom/text
+content = 
+click-right = pkill oneko && xsetroot -cursor_name left_ptr &
+click-left = oneko & 
+
+[module/htop]
+type = custom/text
+content = 
+click-right = roxterm -e 'sh -c "htop"' &
+click-left = roxterm -e 'sh -c "htop"' &
+
+[module/wmname]
+type = custom/script
+interval = 2
+label = %output%
+exec = ~/./.skript/wmname.sh
+click-right = ~/./.skript/wmname.sh --toggle
+click-left = ~/./.skript/wmname.sh --toggle
+
+[module/tlp]
+type = custom/script
+interval = 5
+label = %output%
+exec = ~/./.skript/tlp-isrunning.sh

@@ -2,10 +2,9 @@
 # wm independent hotkeys
 #
 
-#alt + e
-#	./.config/polybar/skript/example.sh
-
-
+alt + shift + e
+#	~/./Dokumente/test.sh
+	
 # terminal emulator
 super + Return
 	roxterm
@@ -200,11 +199,9 @@ alt + {_,shift + } f
 # 
 
 XF86AudioRaiseVolume
-#	./.config/polybar/skript/sound/SRaiseVol.sh
 	pactl set-sink-volume 0 +5%
 
 XF86AudioLowerVolume
-#	./.config/polybar/skript/sound/SLowerVol.sh
 	pactl set-sink-volume 0 -5%
 	
 XF86AudioMute

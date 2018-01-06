@@ -2,10 +2,9 @@
 # wm independent hotkeys
 #
 
-#alt + e
-#	./.config/polybar/skript/example.sh
-
-
+alt + shift + e
+#	~/./Dokumente/test.sh
+	
 # terminal emulator
 super + Return
 	roxterm

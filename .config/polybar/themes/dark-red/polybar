@@ -213,7 +213,7 @@ format = <label-state> <label-mode>
 ;ws-icon-3 = music;
 ;ws-icon-4 = irssi;
 ;ws-icon-default = 
-ws-icon-default = 
+ws-icon-default =  
 
 inline-mode = true
 

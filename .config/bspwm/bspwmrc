@@ -9,8 +9,8 @@ bspc monitor HDMI1 -d 8
 bspc config click_to_focus any
 bspc config border_width         2
 bspc config window_gap          12
-bspc config top_padding 		17 
-bspc config bottom_padding 		12 
+bspc config top_padding 		17
+bspc config bottom_padding 		12
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   false
@@ -34,4 +34,4 @@ bspc rule -a Screenkey manage=off
 
 # Colers
 hsetroot -full ~/Bilder/Wallpapers/1.png
-~/./.skript/bspwm/bspwmRed.sh
+~/./.skript/randomBar.sh

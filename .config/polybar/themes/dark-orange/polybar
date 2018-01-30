@@ -1,9 +1,9 @@
 [colors]
 background = #222
 foreground = #eee
-linecolor = #7B0000
+linecolor = #e57500
 bordercolor = #333333
-accent = #C80000
+accent = #FF8200
 
 [settings]
 screenchange-reload = true
@@ -92,6 +92,7 @@ bspwm-focused-underline = #cc333333
 enable-ipc = true
 monitor = ${env:MONITOR:eDP1}
 width = 100%
+; sollte transperent sein :(
 ;background = #cc000000
 foreground = ${colors.foreground}
 padding-left = 0
@@ -129,6 +130,15 @@ height = 24
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+
+;background-0 = #333
+;background-1 = #222
+;background-2 = ${self.background-1}
+;background-3 = ${self.background-1}
+;background-4 = ${self.background-1}
+;background-5 = ${self.background-1}
+;background-6 = ${self.background-1}
+;background-7 = #111
 
 line-color = ${colors.linecolor}
 underline-size = 1
@@ -195,10 +205,10 @@ enable-scroll = false
 
 format = <label-state> <label-mode>
 ;format = <label-monitor> <label-state> <label-mode>
-;pin-workspaces = false
+;pin-workspaces = true
 
-;ws-icon-0 = term;
-;ws-icon-1 = web;
+;ws-icon-0 = GitKraken;
+;ws-icon-1 = Atom;
 ;ws-icon-2 = code;
 ;ws-icon-3 = music;
 ;ws-icon-4 = irssi;
@@ -558,7 +568,7 @@ interval = 0.1
 type = custom/script
 format = <label>
 interval = 100
-format-underline = #7B0000
+format-underline = ${colors.linecolor}
 label = "%output:0:30%"
 exec = .config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"

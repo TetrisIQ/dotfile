@@ -4,16 +4,14 @@
 
 alt + shift + e
 #	~/./Dokumente/test.sh
-	
+
 # terminal emulator
 super + Return
 	roxterm
 
 # program launcher
 super + @space
-#	dmenu_run -nb '#222' -nf '#eee' -sb '#704B0F' -b -fn monospace	
-# red	
-	dmenu_run -nb '#222' -nf '#eee' -sb '#7B0000' -b -fn monospace	
+	/./home/alex/.skript/dmenu_forRandomBar.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -29,7 +27,7 @@ alt + b
 
 #
 # Mouse bindings
-# 
+#
 
 # Move or resize window
 super + button{1-3}
@@ -74,7 +72,7 @@ super + y
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest
-	
+
 #
 # state/flags
 #
@@ -166,9 +164,9 @@ super + {Left,Down,Up,Right}
 
 #
 # Nice Stuff
-# 
+#
 
-# Move current window to argest space 
+# Move current window to argest space
 shift + Return
 	bspc window -s biggest
 
@@ -190,25 +188,25 @@ alt + t
 # FH ordner offnen in Ranger
 alt + {_,shift + } f
 	./.config/polybar/skript/ranger.sh
-	
+
 
 
 
 #
 ## Media Key
-# 
+#
 
 XF86AudioRaiseVolume
 	pactl set-sink-volume 0 +5%
 
 XF86AudioLowerVolume
 	pactl set-sink-volume 0 -5%
-	
+
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
-XF86MonBrightnessDown 
+XF86MonBrightnessDown
 	xbacklight -inc -5
 
-XF86MonBrightnessUp 
+XF86MonBrightnessUp
 	xbacklight -inc +5

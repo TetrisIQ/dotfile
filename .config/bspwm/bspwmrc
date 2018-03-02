@@ -19,6 +19,7 @@ bspc config gapless_monocle      false
 
 # Rules
 bspc rule -a Gimp desktop='^7' state=floating follow=on
+bspc rule -a guake state=floating
 #bspc rule -a feh state=floating
 bspc rule -a Firefox desktop='^2'
 bspc rule -a Thunderbird desktop='^3'

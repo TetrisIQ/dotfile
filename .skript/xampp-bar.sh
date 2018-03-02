@@ -12,7 +12,7 @@ fi
 if [ "$m" != "not" ]; then
 	ret="$ret  M: %{F#0fe108}%{F-}"
 fi
-if [ "$f" != "deactivated." ]; then
+if [ "$f" != "deactivated." ] && [ "$f" != "not" ]; then
 	ret="$ret  F: %{F#0fe108}%{F-}"
 fi
 echo "$ret"

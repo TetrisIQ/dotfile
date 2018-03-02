@@ -496,7 +496,7 @@ toggle-off-foreground = #777
 type = custom/menu
 
 label-open = 
-label-close = 
+label-close = C
 label-separator = /
 label-separator-margin = 1
 

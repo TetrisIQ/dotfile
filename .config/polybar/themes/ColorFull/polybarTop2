@@ -1,0 +1,386 @@
+[colors-green]
+background = #222
+foreground = #eee
+linecolor = #115A06
+bordercolor = #333333
+accent = #1ea30a
+
+[colors-lightblue]
+background = #222
+foreground = #eee
+linecolor = #917fff
+bordercolor = #333333
+accent = #654cff
+
+[colors-orange]
+background = #222
+foreground = #eee
+linecolor = #e57500
+bordercolor = #333333
+accent = #FF8200
+
+[colors-darkRed]
+background = #222
+foreground = #eee
+linecolor = #7B0000
+bordercolor = #333333
+accent = #C80000
+
+[colors-darkPx]
+background = #222
+foreground = #eee
+linecolor = #704B0F
+bordercolor = #333333
+accent = #B48B48
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/general-Top2]
+enable-ipc = true
+monitor = ${env:MONITOR:HDMI1}
+width = 100%
+height = 24
+underline-size = 1
+overline-size = 2
+border-bottom-size = 2
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = DejaVuSans:pixelsize=9;1
+font-1 = siji:pixelsize=10;1
+font-2 = unifont:size=6;1
+font-3 = Font Awesome 5 Free:style=Regular:pixelsize=10;3
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
+font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
+tray-position = none
+wm-restack = bspwm
+modules-left = power-menu bspwm
+modules-center = xwindow
+modules-right = wifi battery date
+
+
+[bar/top-green]
+inherit = bar/general-Top
+background = ${colors-green.background}
+foreground = ${colors-green.foreground}
+line-color = ${colors-green.linecolor}
+border-bottom-color = ${colors-green.bordercolor}
+bspwm-focused-overline = ${colors-green.linecolor}
+accent-color = ${colors-green.accent}
+bspwm-focused-underline = #cc333333
+
+[bar/top-lightblue]
+inherit = bar/general-Top
+background = ${colors-lightblue.background}
+foreground = ${colors-lightblue.foreground}
+line-color = ${colors-lightblue.linecolor}
+border-bottom-color = ${colors-lightblue.bordercolor}
+bspwm-focused-overline = ${colors-lightblue.linecolor}
+accent-color = ${colors-lightblue.accent}
+bspwm-focused-underline = #cc333333
+
+[bar/top-orange]
+inherit = bar/general-Top
+background = ${colors-orange.background}
+foreground = ${colors-orange.foreground}
+line-color = ${colors-orange.linecolor}
+border-bottom-color = ${colors-orange.bordercolor}
+bspwm-focused-overline = ${colors-orange.linecolor}
+accent-color = ${colors-orange.accent}
+bspwm-focused-underline = #cc333333
+
+[bar/top-darkRed]
+inherit = bar/general-Top
+background = ${colors-darkRed.background}
+foreground = ${colors-darkRed.foreground}
+line-color = ${colors-darkRed.linecolor}
+border-bottom-color = ${colors-darkRed.bordercolor}
+bspwm-focused-overline = ${colors-darkRed.linecolor}
+accent-color = ${colors-darkRed.accent}
+bspwm-focused-underline = #cc333333
+
+[bar/top-darkPx]
+inherit = bar/general-Top
+background = ${colors-darkPx.background}
+foreground = ${colors-darkPx.foreground}
+line-color = ${colors-darkPx.linecolor}
+border-bottom-color = ${colors-darkPx.bordercolor}
+bspwm-focused-overline = ${colors-darkPx.linecolor}
+accent-color = ${colors-darkPx.accent}
+bspwm-focused-underline = #cc333333
+
+[module/github]
+type = internal/github
+token = ${file:/home/jaagr/.git-token}
+
+;empty-notifications = true
+
+label = %{A1:web --new-window https\://github.com/notifications&:}%notifications%%{A}
+label-padding = 2
+label-background = #f0c209
+label-foreground = #000
+
+[module/fs-root]
+type = internal/fs
+mount-0 = /
+label-mounted = %{F#e60053}%percentage_used%%%{F-} used of %mountpoint%
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-scroll = false
+
+format = <label-state> <label-mode>
+;format = <label-monitor> <label-state> <label-mode>
+ws-icon-default = 
+inline-mode = true
+
+;label-focused = %icon% %name%
+;label-unfocused = %icon% %name%
+label-focused-background = #383838
+label-focused-foreground = #fff
+label-focused-overline = ${root.bspwm-focused-overline}
+label-focused-underline = ${root.bspwm-focused-underline}
+label-focused-padding = 2
+
+;label-focused-occupied = %{O-1} %{O-1}
+;label-focused-occupied = %{O-1} %{O-1} %name%
+label-focused-occupied-background = ${self.label-focused-background}
+label-focused-occupied-foreground = ${self.label-focused-foreground}
+label-focused-occupied-overline = ${self.label-focused-overline}
+label-focused-occupied-underline = ${self.label-focused-underline}
+label-focused-occupied-padding = ${self.label-focused-padding}
+
+;label-occupied = %icon%
+label-occupied = %{O-1} %{O-1}
+label-occupied-padding = 2
+
+;label-urgent = %icon%
+label-urgent = !
+label-urgent-background = ${root.accent-color}
+label-urgent-padding = 2
+
+;label-empty = %icon%
+label-empty = X
+label-empty-foreground = #444
+label-empty-padding = 2
+
+label-monocle = M
+label-monocle-padding = 2
+label-monocle-background = #171717
+label-monocle-foreground = ${root.accent-color}
+
+label-floating = I
+label-floating-padding = 2
+label-floating-background = #171717
+label-floating-foreground = ${root.accent-color}
+
+label-locked = locked
+label-locked-padding = 1
+label-sticky = sticky
+label-sticky-padding = 1
+label-private = private
+label-private-padding = 1
+
+label-dimmed-background = ${root.background}
+label-dimmed-overline = ${root.background}
+label-dimmed-underline = ${root.background}
+label-dimmed-active-foreground = #f00
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = %percentage%%
+format-prefix = " "
+format-prefix-foreground = #666
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = #666
+
+[module/wifi]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+format-connected = <ramp-signal> <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #666
+format-connected-prefix-offset = -6
+label-connected = %downspeed:8%
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #666
+
+[module/wired]
+type = internal/network
+interface = net0
+interval = 3.0
+format-connected-prefix = " "
+format-connected-prefix-foreground = #666
+label-connected = %local_ip%
+
+[module/dateT]
+type = internal/date
+label = %{F#666}%{F-} %date%  %{F#666}|%{F-} %time%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+
+[module/date]
+type = internal/date
+label = %{F#666}%{F-} %date%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+
+[module/time]
+type = internal/date
+label = %{F#666}|%{F-} %time%
+;date = %Y-%m-%d
+date = %d-%m-%Y
+time = %H:%M
+interval = 5
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = C
+ramp-2 = B
+ramp-foreground = #666
+label-foreground = ${root.foreground}
+
+[module/battery]
+type = internal/battery
+full-at = 98
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%% %time%
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% %time%
+format-full = <label-full>
+format-full-prefix = " "
+format-full-prefix-foreground = #666
+ramp-capacity-0 =%{F#FF0000}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #666
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #666
+animation-charging-framerate = 750
+
+[module/power-menu]
+type = custom/menu
+
+label-open = 
+label-close = C
+label-separator = /
+label-separator-margin = 1
+menu-0-0 = Terminate WM
+menu-0-0-foreground = ${root.accent-color}
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = ${root.accent-color}
+menu-0-1-exec = shutdown -r now
+menu-0-2 = Power off
+menu-0-2-foreground = ${root.accent-color}
+menu-0-2-exec = shutdown -h now
+menu-0-3 = Sleep
+menu-0-3-foreground = ${root.accent-color}
+menu-0-3-exec = systemctl suspend
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = #666
+label-layout = %layout%
+label-indicator-padding = 2
+label-indicator-background = ${root.accent-color}
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+label-maxlen = 75
+
+[module/pkg]
+type = custom/script
+format = <label>
+interval = 100
+format-underline = ${root.line-color}
+label = "%output:0:30%"
+exec = .skript/pkg.sh
+exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+click-left = .config/polybar/skript/pkg-update.sh
+click-right = .config/polybar/skript/pkg-list.sh
+
+[module/KW]
+type = custom/script
+label = KW: %output%
+exec = date +%V
+
+[module/pavolume]
+type = custom/script
+interval = 2
+label = %output%
+exec = ~/.config/polybar/skript/sound/paVol.sh
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/skript/sound/paVol.sh --togmute
+scroll-up = ~/.config/polybar/skript/sound/paVol.sh --up
+scroll-down = ~/.config/polybar/skript/sound/paVol.sh --down
+
+
+[module/insync]
+type = custom/script
+exec = ~/./.skript/insync-isrunning.sh
+interval = 5
+click-left = ~/./.skript/insync-isrunning.sh --toggle
+click-right = roxterm -e 'sh -c "insync-headless manage_selective_sync aw1826510@googlemail.com"'
+
+[module/oneko]
+type = custom/text
+content = 
+click-right = pkill oneko && xsetroot -cursor_name left_ptr &
+click-left = oneko &
+
+[module/htop]
+type = custom/text
+content = 
+click-right = roxterm -e 'sh -c "htop"' &
+click-left = roxterm -e 'sh -c "htop"' &
+
+[module/wmname]
+type = custom/script
+interval = 2
+label = %output%
+exec = ~/./.skript/wmname.sh
+click-right = ~/./.skript/wmname.sh --toggle
+click-left = ~/./.skript/wmname.sh --toggle
+
+[module/tlp]
+type = custom/script
+interval = 5
+label = %output%
+exec = ~/./.skript/tlp-isrunning.sh
+
+[module/xampp]
+type = custom/script
+interval = 5
+label = %output%
+exec = ~/./.skript/xampp-bar.sh

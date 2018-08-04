@@ -1,5 +1,15 @@
 #! /bin/sh
 
+rand=$(awk -v min=1 -v max=4 'BEGIN{srand(); print int(min+rand()*(max-min+1))}');
+export BAR=$rand
+export VISUAL="micro"
+xsetroot -cursor_name left_ptr &
+pulseaudio &
+insync-headless start &
+sxhkd &
+nm-applet --sm-disable &
+date >> bspwm.log
+setxkbmap de
 sxhkd &
 
 bspc monitor eDP1 -d 1 2 3 4 5 6 7
@@ -7,9 +17,9 @@ bspc monitor HDMI1 -d 8
 
 # Visual options
 bspc config click_to_focus any
-bspc config border_width         2
-bspc config window_gap          12
-bspc config top_padding 		17
+bspc config border_width         3
+bspc config window_gap          0
+bspc config top_padding 		30
 bspc config bottom_padding 		12
 
 bspc config split_ratio          0.52
@@ -22,6 +32,7 @@ bspc rule -a Gimp desktop='^7' state=floating follow=on
 bspc rule -a guake state=floating
 #bspc rule -a feh state=floating
 bspc rule -a Firefox desktop='^2'
+bspc rule -a KeePass desktop='^6'
 bspc rule -a Thunderbird desktop='^3'
 bspc rule -a chromium desktop='^2'
 bspc rule -a Hexchat desktop='^7'
@@ -34,5 +45,5 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # Colers
-hsetroot -full ~/Bilder/Wallpapers/1.png
+hsetroot -full ~/Bilder/Wallpapers/3.jpg
 ~/./.skript/randomBar.sh

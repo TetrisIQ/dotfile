@@ -11,10 +11,10 @@ case "$1" in
     *)
         if [ "$(wmname)" != "BSPWM" ]; then
         # echo LG3D
-        	echo "$(wmname)"
+        	echo "X $(wmname)"
         else
         # echo bswpwm
-        	echo "$(wmname) "
+        	echo "X $(wmname) "
         fi
         ;;
 esac

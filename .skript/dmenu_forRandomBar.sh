@@ -15,6 +15,7 @@ case $(printenv BAR) in
     dmenu_run -nb '#222' -nf '#eee' -sb '#115A06' -b -fn monospace
     ;;
   4)
+  # orange
   dmenu_run -nb '#222' -nf '#eee' -sb '#e57500' -b -fn monospace
     ;;
   5)

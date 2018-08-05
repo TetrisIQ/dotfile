@@ -13,7 +13,7 @@ case $(printenv BAR) in
     bspc config focused_border_color "#7B0000"    #linecolor from polybar
     dunst -config ~/.config/polybar/themes/ColorFull/dunst/dunst-darkRed &
     polybar -c ~/.config/polybar/themes/ColorFull/polybar top-darkRed -q &
-    polybar -c ~/.config/polybar/themes/dark-red/polybarBottom bottom-darkRed -q &
+    polybar -c ~/.config/polybar/themes/ColorFull/polybarBottom bottom-darkRed -q &
     ;;
   2)
   #create bar in yellow
@@ -21,7 +21,7 @@ case $(printenv BAR) in
     bspc config focused_border_color "#704B0F"      #linecolor from polybar
     dunst -config ~/.config/polybar/themes/ColorFull/dunst/dunst-darkPx &
     polybar -c ~/.config/polybar/themes/ColorFull/polybar top-darkPx -q &
-    polybar -c ~/.config/polybar/themes/ColorFull/polybarBottom bottom.darkPx -q &
+    polybar -c ~/.config/polybar/themes/ColorFull/polybarBottom bottom-darkPx -q &
     ;;
 
   3)

@@ -1,9 +1,10 @@
 #! /bin/sh
 
-rand=$(awk -v min=1 -v max=4 'BEGIN{srand(); print int(min+rand()*(max-min+1))}');
+rand=$(awk -v min=1 -v max=5 'BEGIN{srand(); print int(min+rand()*(max-min+1))}');
 export BAR=$rand
 export VISUAL="micro"
 xsetroot -cursor_name left_ptr &
+compton 
 pulseaudio &
 insync-headless start &
 sxhkd &
@@ -38,12 +39,12 @@ bspc rule -a chromium desktop='^2'
 bspc rule -a Hexchat desktop='^7'
 bspc rule -a Slack desktop='^7'
 bspc rule -a Pidgin desktop='^7'
-bspc rule -a telegram.sh desktop='^7'
-bspc rule -a ./telegram/Telegram desktop='^7'
+bspc rule -a telegram-desktop desktop='^7'
 bspc rule -a vlc state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # Colers
 hsetroot -full ~/Bilder/Wallpapers/3.jpg
+wallp &
 ~/./.skript/randomBar.sh

@@ -53,11 +53,11 @@ module-margin-right = 2
 bottom = true
 font-0 = DejaVuSans:pixelsize=9;1
 font-1 = siji:pixelsize=10;1
-font-2 = unifont:size=6;1
+font-2 = unifont:size=6;
 font-3 = Font Awesome 5 Free:style=Regular:pixelsize=10;3
 font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
 font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
-modules-left = KW wmname tlp xampp
+modules-left = date KW wmname tlp xampp
 modules-center = htop cpu memory insync oneko
 
 tray-position = right
@@ -383,3 +383,9 @@ type = custom/script
 interval = 5
 label = %output%
 exec = ~/./.skript/xampp-bar.sh
+
+[module/nerdyDate]
+type = custom/script
+interval = 10
+label = %output%
+exec = ~/./.skript/HexDate.sh

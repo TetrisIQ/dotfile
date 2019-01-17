@@ -19,6 +19,7 @@ case $(printenv BAR) in
   dmenu_run -nb '#222' -nf '#eee' -sb '#e57500' -b -fn monospace
     ;;
   5)
-    dmenu_run -nb '#222' -nf '#eee' -sb '#917fff' -b -fn monospace
+  # light-blue
+  dmenu_run -nb '#222' -nf '#eee' -sb '#2d8bcb' -b -fn monospace
     ;;
 esac

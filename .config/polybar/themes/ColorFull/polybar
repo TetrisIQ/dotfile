@@ -8,9 +8,9 @@ accent = #1ea30a
 [colors-lightblue]
 background = #222
 foreground = #eee
-linecolor = #917fff
+linecolor = #2d8bcb
 bordercolor = #333333
-accent = #654cff
+accent = #00c5ff
 
 [colors-orange]
 background = #222
@@ -61,9 +61,10 @@ font-4 = Font Awesome 5 Free:style=Solid:pixelsize=10;3
 font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
 tray-position = none
 wm-restack = bspwm
-modules-left = power-menu bspwm
+modules-left = power-menu bspwm CriticalBatteryState
 modules-center = xwindow
-modules-right = pkg xkeyboard xbacklight wifi pavolume battery dateT
+; modules-right = pkg xkeyboard xbacklight wifi pavolume battery dateT
+modules-right = pkg xkeyboard xbacklight wifi alsa battery nerdyDate time
 
 
 [bar/top-green]
@@ -269,17 +270,15 @@ date = %d-%m-%Y
 time = %H:%M
 interval = 5
 
-[module/date]
-type = internal/date
-label = %{F#666}%{F-} %date%
-;date = %Y-%m-%d
-date = %d-%m-%Y
-time = %H:%M
-interval = 5
-
 [module/time]
 type = internal/date
 label = %{F#666}|%{F-} %time%
+time = %H:%M
+interval = 5
+
+[module/date]
+type = internal/date
+label = %{F#666}%{F-} %date%
 ;date = %Y-%m-%d
 date = %d-%m-%Y
 time = %H:%M
@@ -304,7 +303,7 @@ format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time%
 format-full = <label-full>
 format-full-prefix = " "
-format-full-prefix-foreground = #666
+format-full-prefix-foreground = #666yy
 ramp-capacity-0 =%{F#FF0000}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -415,6 +414,29 @@ interval = 5
 label = %output%
 exec = ~/./.skript/xampp-bar.sh
 
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 2
+mapped = true
+interval = 5
+
+[module/CriticalBatteryState]
+type = custom/script
+interval = 20
+exec = ~/./.skript/CriticalBatteryState.sh
+
+[module/nerdyDate]
+type = custom/script
+interval = 10
+label = %{F#666}%{F-}  %output%
+exec = ~/./.skript/HexDate.sh
+
 [bar/top2]
 enable-ipc = true
 ;monitor = ${env:MONITOR:eDP-1}
@@ -464,7 +486,7 @@ font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=10;3
 modules-left = power-menu bspwm
 ;modules-center = mpd
 modules-center = xwindow
-modules-right = wifi battery date
+modules-right = wifi battery dateT
 
 tray-position = none
 tray-padding = 4

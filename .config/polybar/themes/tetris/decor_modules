@@ -1,0 +1,33 @@
+[module/decor-glyph]
+type = custom/text
+content-background = ${color.bg}
+content-foreground = ${color.ib}
+
+[module/left-end-top]
+module-margin-left = 2
+inherit = module/decor-glyph
+content = "%{T3}  %{T-}"
+
+[module/right-end-top]
+inherit = module/decor-glyph
+content = "%{T3}%{T-}"
+
+[module/left-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3}%{T-}"
+
+[module/right-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3}%{T-}"
+
+[module/space]
+inherit = module/decor-glyph
+content= "   "
+content-background = ${color.ib}
+
+[module/tap]
+;Make some spaces, I want to shift the centermodules
+type = custom/script
+interval = 100
+label = %output%
+exec = ~/.config/polybar/themes/tetris/scripts/tap.py

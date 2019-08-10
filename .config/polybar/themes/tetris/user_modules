@@ -1,0 +1,95 @@
+[module/github]
+type = internal/github
+token = ${file:/home/alex/.git-token}
+
+;empty-notifications = true
+
+;label = %{A1:web --new-window https\://github.com/notifications&:}%notifications%%{A}
+format =  <label>
+label = %notifications%
+label-padding = 2
+format-background = ${color.ib}
+format-foreground = ${color.fg}
+
+[module/CriticalBatteryState]
+type = custom/script
+interval = 20
+exec = ~/.config/polybar/themes/tetris/scripts/CriticalBatteryState.sh
+
+[module/nerdyDate]
+type = custom/script
+interval = 10
+format-background = ${color.ib}
+label =  %output%
+exec = ~/.config/polybar/themes/tetris/scripts/HexDate.sh
+
+[module/xampp]
+type = custom/script
+interval = 5
+label = "    %output%"
+exec = ~/.config/polybar/themes/tetris/scripts/xampp-bar.sh
+format-background = ${color.ib}
+
+[module/wmname]
+type = custom/script
+interval = 2
+label = %output%
+exec = ~/./.config/polybar/themes/tetris/scripts/wmname.sh
+click-right = ~/./.skript/wmname.sh --toggle
+click-left = ~/./.skript/wmname.sh --toggle
+label-background = ${color.ib}
+
+[module/tlp]
+type = custom/script
+interval = 5
+label = %output%
+exec = ~/.config/polybar/themes/tetris/scripts/tlp-isrunning.sh
+
+[module/insync]
+type = custom/script
+exec = ~/.skript/insync-isrunning.sh
+interval = 5
+click-left = ~/./.skript/insync-isrunning.sh --toggle
+click-right = roxterm -e 'sh -c "insync-headless manage_selective_sync aw1826510@googlemail.com"'
+label = %output%
+format = <label>
+format-background = ${color.ib}
+
+[module/oneko]
+type = custom/text
+content = 
+click-right = pkill oneko && xsetroot -cursor_name left_ptr &
+click-left = oneko &
+content-background = ${color.ib}
+
+[module/htop]
+type = custom/text
+content = 
+content-background = ${color.ib}
+click-right = roxterm -e 'sh -c "htop"' &
+click-left = roxterm -e 'sh -c "htop"' &
+
+[module/KW]
+type = custom/script
+label = KW: %output%
+exec = date +%V
+format = <label>
+format-background = ${color.ib}
+
+[module/sysmenu]
+type = custom/text
+content = 
+
+; "content" has the same properties as "format-NAME"
+content-background = ${color.ib}
+content-foreground = ${color.fg}
+;content-padding = ${layout.module-padding}
+
+; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
+click-left = ~/.config/polybar/scripts/powermenu
+;;click-middle = ~/.config/polybar/scripts/powermenu
+click-right = ~/.config/polybar/scripts/powermenu-alt
+
+; "scroll-(up|down)" will be executed using "/usr/bin/env sh -c $COMMAND"
+;;scroll-up = ~/.config/polybar/scripts/powermenu
+;;scroll-down = ~/.config/polybar/scripts/powermenu

@@ -20,16 +20,18 @@ conky.config = {
    own_window_argb_visual = true,
    own_window_transparent = true,
    own_window_hints = 'below,undecorated,skip_taskbar,skip_pager',
-
+   own_window_title = 'clicky',
    alignment = 'top_left',
 
    draw_shades = true,
    override_utf8_locale = true,
    format_human_readable = true,
 
-   lua_load = '/home/alex/FHL-Workspace/ctf/conky/.conky/conky-mcrn.lua',
+   lua_load = '/home/alex/dotfile/.conky/conky-2020.lua',
+
    lua_draw_hook_pre = 'conky_main',
 };
 
 conky.text = [[
 ]];
+
